@@ -9,7 +9,7 @@ CATEGORIAS = {
     "Dulce":     ["pastel", "azucar", "chocolate", "postre", "dulce", "galleta", "helado"],
     "Picosa":    ["chile", "picante", "jalapeno", "habanero"],
     "Mariscos":  ["camaron", "pescado", "marisco", "pulpo", "atun"],
-    "Pastas":    ["pasta", "espagueti", "macarron", "lasagna"],
+    "Pastas":    ["pasta", "espagueti", "macarron", "lasaña"],
     "Cortes":    ["bistec", "filete", "costilla", "carne"],
     "Aderezos":  ["aderezo", "mayonesa", "vinagreta"],
 }
