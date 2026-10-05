@@ -1,0 +1,29 @@
+$def with (prioritarios, normales, total_prioritarios, total_normales, total_tickets, tiempo_total)
+<html>
+<body>
+<h1>Estado de las filas</h1>
+
+<h2>Estadísticas</h2>
+<p>Tickets en fila prioritaria: $total_prioritarios</p>
+<p>Tickets en fila normal: $total_normales</p>
+<p>Total de tickets esperando: $total_tickets</p>
+<p>Tiempo estimado total para resolver todos los tickets: $tiempo_total minutos</p>
+
+$if total_tickets == 0:
+    <p><b>¡Alerta! No hay tickets en ninguna fila.</b></p>
+$else:
+    <h2>Fila prioritaria</h2>
+    $if not prioritarios:
+        <p>No hay tickets prioritarios.</p>
+    $for id, nombre_cliente, descripcion, prioridad, tiempo_estimado in prioritarios:
+        <p>$nombre_cliente - $descripcion ($tiempo_estimado min)</p>
+
+    <h2>Fila normal</h2>
+    $if not normales:
+        <p>No hay tickets normales.</p>
+    $for id, nombre_cliente, descripcion, prioridad, tiempo_estimado in normales:
+        <p>$nombre_cliente - $descripcion ($tiempo_estimado min)</p>
+
+<p><a href="/">Regresar</a></p>
+</body>
+</html>
