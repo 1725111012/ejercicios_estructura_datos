@@ -1,0 +1,22 @@
+$def with (mensaje)
+<html>
+<body>
+<h1>Registrar ticket de soporte</h1>
+$if mensaje:
+    <p>$mensaje</p>
+<form method="POST" action="/">
+    Nombre del cliente: <input type="text" name="nombre_cliente"><br>
+    Descripción: <input type="text" name="descripcion"><br>
+    Prioridad:
+    <select name="prioridad">
+        <option value="normal">Normal</option>
+        <option value="prioritaria">Prioritaria</option>
+    </select><br>
+    Tiempo estimado (minutos): <input type="text" name="tiempo_estimado"><br>
+    <button type="submit">Registrar ticket</button>
+</form>
+<p><a href="/atender">Atender siguiente ticket</a></p>
+<p><a href="/siguiente">Consultar siguiente ticket</a></p>
+<p><a href="/estado">Ver filas y estadísticas</a></p>
+</body>
+</html>

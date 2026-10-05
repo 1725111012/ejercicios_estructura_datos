@@ -1,0 +1,14 @@
+$def with (ticket)
+<html>
+<body>
+<h1>Consultar siguiente ticket</h1>
+$if ticket:
+    <p>El siguiente en atenderse es: <b>$ticket[1]</b></p>
+    <p>Descripción: $ticket[2]</p>
+    <p>Prioridad: $ticket[3]</p>
+    <p>Tiempo estimado: $ticket[4] minutos</p>
+$else:
+    <p><b>No hay tickets en ninguna fila.</b></p>
+<p><a href="/">Regresar</a></p>
+</body>
+</html>
