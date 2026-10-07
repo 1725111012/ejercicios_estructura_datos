@@ -21,7 +21,11 @@ class Estado:
 
         tiempo_total = 0
         for ticket in prioritarios + normales:
-            tiempo_total = tiempo_total + int(ticket[4])
+            # Validamos si ticket[4] no es None/vacío y si contiene solo dígitos
+            val = ticket[4]
+            if val is not None and str(val).isdigit():
+                tiempo_total += int(val)
 
         conn.close()
         return render.estado(prioritarios, normales, total_prioritarios, total_normales, total_tickets, tiempo_total)
+    
