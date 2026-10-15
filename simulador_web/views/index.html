@@ -1,0 +1,17 @@
+$def with (mensaje)
+<html>
+<body>
+<h1>Navegador web</h1>
+$if mensaje:
+    <p>$mensaje</p>
+<form method="POST" action="/">
+    Página web: <input type="text" name="url">
+    <button type="submit">1. Visitar página</button>
+</form>
+<p><a href="/regresar">2. Regresar a la página anterior</a></p>
+<p><a href="/actual">3. Mostrar la página actual</a></p>
+<p><a href="/historial">4. Mostrar el historial</a></p>
+<p><a href="/vaciar">5. Verificar o eliminar el historial</a></p>
+<p><a href="/salir">6. Salir</a></p>
+</body>
+</html>

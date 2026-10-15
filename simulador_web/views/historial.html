@@ -1,0 +1,13 @@
+$def with (paginas, total)
+<html>
+<body>
+<h1>Historial de páginas visitadas</h1>
+$if total == 0:
+    <p><b>El historial está vacío.</b></p>
+$else:
+    <p>De la más reciente (actual) a la más antigua:</p>
+    $for id, url in paginas:
+        <p>$url</p>
+<p><a href="/">Regresar al menú</a></p>
+</body>
+</html>

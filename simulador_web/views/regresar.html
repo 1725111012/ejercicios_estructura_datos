@@ -1,0 +1,12 @@
+$def with (salida, actual)
+<html>
+<body>
+<h1>Regresar a la página anterior</h1>
+$if salida:
+    <p>Saliste de: $salida[1]</p>
+    <p>Ahora estás en: <b>$actual[1]</b></p>
+$else:
+    <p><b>No hay una página anterior a la cual regresar.</b></p>
+<p><a href="/">Regresar al menú</a></p>
+</body>
+</html>

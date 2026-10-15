@@ -1,0 +1,16 @@
+$def with (total, mensaje)
+<html>
+<body>
+<h1>Verificar o eliminar el historial</h1>
+$if mensaje:
+    <p>$mensaje</p>
+$if total == 0:
+    <p><b>El historial está vacío.</b></p>
+$else:
+    <p>El historial tiene $total página(s).</p>
+    <form method="POST" action="/vaciar">
+        <button type="submit">Eliminar historial</button>
+    </form>
+<p><a href="/">Regresar al menú</a></p>
+</body>
+</html>

@@ -1,0 +1,11 @@
+$def with (pagina)
+<html>
+<body>
+<h1>Página actual</h1>
+$if pagina:
+    <p>Estás en: <b>$pagina[1]</b></p>
+$else:
+    <p><b>El historial está vacío. No has visitado ninguna página.</b></p>
+<p><a href="/">Regresar al menú</a></p>
+</body>
+</html>
