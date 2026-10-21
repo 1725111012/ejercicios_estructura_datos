@@ -5,7 +5,7 @@ $def with (paginas, total)
 $if total == 0:
     <p><b>El historial está vacío.</b></p>
 $else:
-    <p>De la más reciente (actual) a la más antigua:</p>
+    <p>Historial:</p>
     $for id, url in paginas:
         <p>$url</p>
 <p><a href="/">Regresar al menú</a></p>
