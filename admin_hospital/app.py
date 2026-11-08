@@ -12,6 +12,12 @@ urls = (
 render = web.template.render('templates/', base='layout')
 
 
+def ir_a(direccion):
+    web.ctx.status = '303 See Other'
+    web.header('Location', direccion)
+    return ''
+
+
 class Registrar:
     def GET(self):
         return render.registrar()
@@ -19,7 +25,7 @@ class Registrar:
     def POST(self):
         d = web.input()
         modelo.registrar(d.nombre, int(d.edad), d.motivo, d.tipo, int(d.tiempo))
-        raise web.seeother('/filas')
+        return ir_a('/filas')
 
 
 class Filas:
@@ -33,8 +39,8 @@ class Atender:
     def POST(self):
         turno = modelo.atender_siguiente()
         if turno is None:
-            raise web.seeother('/atendido')
-        raise web.seeother('/atendido?turno=' + str(turno))
+            return ir_a('/atendido')
+        return ir_a('/atendido?turno=' + str(turno))
 
 
 class Atendido:
@@ -59,4 +65,3 @@ class Estadisticas:
 if __name__ == '__main__':
     app = web.application(urls, globals())
     app.run()
-    
