@@ -1,0 +1,17 @@
+$def with ()
+<h2>Registrar paciente</h2>
+
+<form method="POST" action="/">
+    Nombre: <input type="text" name="nombre" required><br>
+    Edad: <input type="number" name="edad" min="0" required><br>
+    Motivo de consulta: <input type="text" name="motivo" required><br>
+    Tipo de atención:
+
+    <select name="tipo">
+        <option value="General">General</option>
+        <option value="Prioritaria">Prioritaria</option>
+    </select><br>
+
+    Tiempo estimado de atención (min): <input type="number" name="tiempo" min="1" required><br>
+    <input type="submit" value="Registrar">
+</form>

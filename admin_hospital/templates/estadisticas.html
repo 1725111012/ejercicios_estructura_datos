@@ -1,0 +1,21 @@
+$def with (total, atendidos, promedio, espera, en_prioritaria, en_general, ultimos)
+<h2>Estadísticas</h2>
+<p>Pacientes registrados: $total</p>
+<p>Pacientes atendidos: $atendidos</p>
+<p>En espera (prioritaria): $en_prioritaria</p>
+<p>En espera (general): $en_general</p>
+<p>Tiempo promedio de atención: $promedio min</p>
+<p>Tiempo total estimado para atender a los que esperan: $espera min</p>
+
+<h2>Últimos pacientes atendidos</h2>
+<table border="1">
+<tr><th>Turno</th>
+<th>Nombre</th>
+<th>Edad</th>
+<th>Motivo</th>
+<th>Tipo</th>
+<th>Tiempo (min)</th></tr>
+
+$for a in ultimos:
+    <tr><td>$a[0]</td><td>$a[1]</td><td>$a[2]</td><td>$a[3]</td><td>$a[4]</td><td>$a[5]</td></tr>
+</table>
