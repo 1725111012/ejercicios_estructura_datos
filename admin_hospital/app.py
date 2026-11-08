@@ -5,10 +5,12 @@ urls = (
     '/', 'Registrar',
     '/filas', 'Filas',
     '/atender', 'Atender',
+    '/atendido', 'Atendido',
     '/estadisticas', 'Estadisticas'
 )
 
 render = web.template.render('templates/', base='layout')
+
 
 class Registrar:
     def GET(self):
@@ -29,8 +31,19 @@ class Filas:
 
 class Atender:
     def POST(self):
-        modelo.atender_siguiente()
-        raise web.seeother('/filas')
+        turno = modelo.atender_siguiente()
+        if turno is None:
+            raise web.seeother('/atendido')
+        raise web.seeother('/atendido?turno=' + str(turno))
+
+
+class Atendido:
+    def GET(self):
+        d = web.input(turno=None)
+        paciente = None
+        if d.turno is not None:
+            paciente = modelo.ver_paciente(int(d.turno))
+        return render.atendido(paciente)
 
 
 class Estadisticas:
@@ -46,3 +59,4 @@ class Estadisticas:
 if __name__ == '__main__':
     app = web.application(urls, globals())
     app.run()
+    

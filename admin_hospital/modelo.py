@@ -1,5 +1,6 @@
 import sqlite3
 
+
 def conectar():
     conn = sqlite3.connect('hospital.db')
     conn.execute('CREATE TABLE IF NOT EXISTS pacientes ('
@@ -34,17 +35,28 @@ def ver_atendidos():
     return filas
 
 
+def ver_paciente(turno):
+    conn = conectar()
+    fila = conn.execute("SELECT turno, nombre, edad, motivo, tipo, tiempo FROM pacientes "
+                        "WHERE turno=?", (turno,)).fetchone()
+    conn.close()
+    return fila
+
+
 def atender_siguiente():
     conn = conectar()
     sql = "SELECT turno FROM pacientes WHERE estado='Esperando' AND tipo=? ORDER BY turno LIMIT 1"
     fila = conn.execute(sql, ('Prioritaria',)).fetchone()
     if fila is None:
         fila = conn.execute(sql, ('General',)).fetchone()
+    turno = None
     if fila is not None:
+        turno = fila[0]
         conn.execute("UPDATE pacientes SET estado='Atendido', hora=datetime('now','localtime') "
-                     "WHERE turno=?", (fila[0],))
+                     "WHERE turno=?", (turno,))
         conn.commit()
     conn.close()
+    return turno
 
 
 def estadisticas():

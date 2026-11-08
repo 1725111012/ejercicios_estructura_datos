@@ -1,0 +1,12 @@
+$def with (paciente)
+<h2>Paciente atendido</h2>
+$if paciente is None:
+    <p>No hay pacientes en espera.</p>
+$else:
+    <p>Turno: $paciente[0]</p>
+    <p>Nombre: $paciente[1]</p>
+    <p>Edad: $paciente[2]</p>
+    <p>Motivo de consulta: $paciente[3]</p>
+    <p>Tipo de atención: $paciente[4]</p>
+    <p>Tiempo estimado de atención: $paciente[5] min</p>
+<p><a href="/filas">Volver a las filas</a></p>
