@@ -9,13 +9,7 @@ $def with (total, atendidos, promedio, espera, en_prioritaria, en_general, ultim
 
 <h2>Últimos pacientes atendidos</h2>
 <table border="1">
-<tr><th>Turno</th>
-<th>Nombre</th>
-<th>Edad</th>
-<th>Motivo</th>
-<th>Tipo</th>
-<th>Tiempo (min)</th></tr>
-
-$for a in ultimos:
-    <tr><td>$a[0]</td><td>$a[1]</td><td>$a[2]</td><td>$a[3]</td><td>$a[4]</td><td>$a[5]</td></tr>
+<tr><th>Turno</th><th>Nombre</th><th>Edad</th><th>Motivo</th><th>Tipo</th><th>Tiempo (min)</th></tr>
+$for paciente in ultimos:
+    <tr><td>$paciente[0]</td><td>$paciente[1]</td><td>$paciente[2]</td><td>$paciente[3]</td><td>$paciente[4]</td><td>$paciente[5]</td></tr>
 </table>

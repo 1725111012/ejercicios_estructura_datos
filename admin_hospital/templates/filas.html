@@ -1,35 +1,19 @@
 $def with (prioritaria, general)
 <h2>Consultorio</h2>
-
 <form method="POST" action="/atender">
     <input type="submit" value="Médico disponible: atender siguiente">
 </form>
 
 <h2>Fila prioritaria</h2>
 <table border="1">
-
-<tr><th>Turno</th>
-<th>Nombre</th>
-<th>Edad</th>
-<th>Motivo</th>
-<th>Tipo</th>
-<th>Tiempo (min)</th></tr>
-
+<tr><th>Turno</th><th>Nombre</th><th>Edad</th><th>Motivo</th><th>Tipo</th><th>Tiempo (min)</th></tr>
 $for p in prioritaria:
     <tr><td>$p[0]</td><td>$p[1]</td><td>$p[2]</td><td>$p[3]</td><td>$p[4]</td><td>$p[5]</td></tr>
 </table>
 
 <h2>Fila general</h2>
 <table border="1">
-<tr><th>Turno</th><th>Nombre</th>
-<th>Edad</th><th>Motivo</th>
-<th>Tipo</th><th>Tiempo (min)</th></tr>
-
+<tr><th>Turno</th><th>Nombre</th><th>Edad</th><th>Motivo</th><th>Tipo</th><th>Tiempo (min)</th></tr>
 $for g in general:
-    <tr><td>$g[0]</td>
-    <td>$g[1]</td>
-    <td>$g[2]</td>
-    <td>$g[3]</td>
-    <td>$g[4]</td>
-    <td>$g[5]</td></tr>
+    <tr><td>$g[0]</td><td>$g[1]</td><td>$g[2]</td><td>$g[3]</td><td>$g[4]</td><td>$g[5]</td></tr>
 </table>
