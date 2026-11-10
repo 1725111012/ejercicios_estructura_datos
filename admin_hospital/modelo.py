@@ -46,16 +46,13 @@ def atender_siguiente():
     conexion = sqlite3.connect('hospital.db')
     cursor = conexion.cursor()
 
-    # Primero se busca en la fila prioritaria
     cursor.execute("SELECT turno FROM pacientes " "WHERE estado='Esperando' AND tipo='Prioritaria' ORDER BY turno LIMIT 1")
     fila = cursor.fetchone()
 
-    # Si no hay nadie, se busca en la fila general
     if fila is None:
         cursor.execute("SELECT turno FROM pacientes " "WHERE estado='Esperando' AND tipo='General' ORDER BY turno LIMIT 1")
         fila = cursor.fetchone()
 
-    # Si tampoco hay nadie, no hay a quien atender
     if fila is None:
         conexion.close()
         return None
